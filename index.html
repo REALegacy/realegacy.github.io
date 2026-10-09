@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" data-settings="closed" data-hamburger="closed">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1000px)" href="./assets/css/style1000.css">
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="./assets/css/style-mobile.css">
+    <link rel="stylesheet" media="screen and (max-width: 500px)" href="./assets/css/style-500.css">
+    <link rel="stylesheet" media="screen and (max-width: 200px)" href="./assets/css/style-smartwatch.css">
     <link rel="icon" href="./favicon.ico">
     <title>REA Legacy smp</title>
     <script defer type="module" src="./scripts/main.js"></script>
@@ -18,7 +22,7 @@
             <span id="header-text">home</span>
         </div>
         <div class="header-right">
-            <nav>
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#home">home</a></li>
                     <li><a href="#informatie">informatie</a></li>
@@ -26,21 +30,52 @@
                     <li><a href="#galery">galery</a></li>
                 </ul>
             </nav>
-            <div class="custom-dropdown" data-storage-key="REALegacy/font">
-                <div class="dropdown-selected dropdown-toggle">
-                    <i class="bx bx-font-family"></i>
-                    <span style="font-family: var(--mayan);">mayan</span>
-                    <i class="bx bx-chevron-down"></i>
-                </div>
+            <button class="settings" id="toggle-settings"><i class="bx bx-cog"></i></button>
+            <button class="hamburger" id="toggle-hamburger"><i class="bx bx-menu"></i></button>
+            <div class="header-stuff">
+                <div class="header-stuff-desktop-mobile">
+                    <div class="quick-settings">
+                        <div class="settings-header">
+                            <h2>Instellingen</h2>
+                        </div>
+                        <div class="custom-dropdown" data-storage-key="REALegacy/font" data-custom-event="fontchange">
+                            <div class="dropdown-selected dropdown-toggle">
+                                <i class="bx bx-font-family"></i>
+                                <span style="font-family: var(--mayan);">mayan</span>
+                                <i class="bx bx-chevron-down"></i>
+                            </div>
 
-                <ul class="dropdown-options dropdown-list">
-                    <li data-value="wavefont"><span style="font-family: var(--wavefont);"> wavefont</span><span style="font-family: var(--mayan);">wavefont</span></li>
-                    <li data-value="sci-fi"><span style="font-family: var(--sci-fi);">sci-fi</span></li>
-                    <li data-value="mayan"><span style="font-family: var(--mayan);">mayan</span></li>
-                    <li data-value="christmas"><span style="font-family: var(--christmas);">christmas</span></li>
-                    <li data-value="minecraft"><span style="font-family: var(--minecraft);">minecraft</span></li>
-                    <li data-value="comic"><span style="font-family: var(--comic);">comic sans</span></li>
-                </ul>
+                            <ul class="dropdown-options dropdown-list">
+                                <li data-value="wavefont"><span style="font-family: var(--wavefont);"> wavefont</span><span style="font-family: var(--mayan);">wavefont</span></li>
+                                <li data-value="sci-fi"><span style="font-family: var(--sci-fi);">sci-fi</span></li>
+                                <li data-value="mayan"><span style="font-family: var(--mayan);">mayan</span></li>
+                                <li data-value="christmas"><span style="font-family: var(--christmas);">christmas</span></li>
+                                <li data-value="minecraft"><span style="font-family: var(--minecraft);">minecraft</span></li>
+                                <li data-value="comic"><span style="font-family: var(--comic);">comic sans</span></li>
+                            </ul>
+                        </div>
+                        <div class="custom-dropdown" data-storage-key="REALegacy/theme" data-custom-event="themechange">
+                            <div class="dropdown-selected dropdown-toggle">
+                                <span><i class="bx bx-palette"></i> System</span>
+                                <i class="bx bx-chevron-down"></i>
+                            </div>
+
+                            <ul class="dropdown-options dropdown-list">
+                                <li data-value="auto"><span><i class="bx bx-palette"></i> System</span></li>
+                                <li data-value="dark"><span><i class="bx bx-moon-stars"></i> Dark</span></li>
+                                <li data-value="light"><span><i class="bx bx-sun"></i> Light</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <nav class="mobile-nav">
+                        <ul>
+                            <li><a href="#home">home</a></li>
+                            <li><a href="#informatie">informatie</a></li>
+                            <li><a href="#regels">regels</a></li>
+                            <li><a href="#galery">galery</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -72,25 +107,25 @@
             <li>
                 <span>maak en nieuw profiel aan ik gebruik Modrinth als voorbeeld</span>
                 <div class="list-image-center">
-                    <img width="50%" src="./assets/media//images/tutorial/info-1.png" alt="afbeelding over hoe je en profiel toevoegd">
+                    <img class="width-50" src="./assets/media//images/tutorial/info-1.png" alt="afbeelding over hoe je en profiel toevoegd">
                 </div>
             </li>
             <li>
                 <span>select custom setup</span>
                 <div class="list-image-center">
-                    <img width="20%" src="./assets/media//images/tutorial/info-2.png" alt="in de afbeelding zie je en menu met keuzes wij kiezen custom setup">
+                    <img class="width-20" src="./assets/media//images/tutorial/info-2.png" alt="in de afbeelding zie je en menu met keuzes wij kiezen custom setup">
                 </div>
             </li>
             <li>
                 <span>nu moet je de instance en naam gecen, selecteer fabric als loader en zorg ervoor dat je de goede version instelt wat je op de landings pagina kunt (<span class="version">?</span>)</span>
                 <div class="list-image-center">
-                    <img width="20%" src="./assets/media//images/tutorial/info-3.png" alt="in de afbeelding zie je de belangrijkste settings voor de instance">
+                    <img class="width-20" src="./assets/media//images/tutorial/info-3.png" alt="in de afbeelding zie je de belangrijkste settings voor de instance">
                 </div>
             </li>
             <li>
                 <span>Bij de 3 puntjes moet je Open folder selecteren zodat we in de bestanden van de instance komen</span>
                 <div class="list-image-center">
-                    <img width="50%" src="./assets/media//images/tutorial/info-4.png" alt="in de afbeelding zie je wat je moet hebben om de bestanden te openen">
+                    <img class="width-50" src="./assets/media//images/tutorial/info-4.png" alt="in de afbeelding zie je wat je moet hebben om de bestanden te openen">
                 </div>
             </li>
             <li>
@@ -116,6 +151,8 @@
             </li>
         </ol>
     </section>
-
+    <section class="smartwatch">
+        <p>bekijk deze website op je mobiel het past niet op en smartwatch sorry</p>
+    </section>
 </body>
 </html>
