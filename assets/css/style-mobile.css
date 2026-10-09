@@ -1,0 +1,37 @@
+
+
+.mobile-nav {
+    display: inline;
+    padding: 1lvh;
+    display: flex;
+    flex-direction: column;
+    gap: 1lvh;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.hamburger {
+    display: inline;
+}
+
+.settings {
+    display: none;
+}
+
+.settings-header {
+    display: none;
+}
+
+.header-stuff-desktop-mobile {
+    display: var(--hamburger-menu-display);
+}
+
+.width-50 {
+    width: 100%;
+}
+
+.width-20 {
+    width: 60%;
+}

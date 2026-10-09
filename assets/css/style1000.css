@@ -1,0 +1,39 @@
+
+
+.header-stuff {
+    position: relative;
+}
+
+.header-stuff-desktop-mobile {
+    position: fixed;
+    top: var(--header-height);
+    right: 0px;
+    width: 200px;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--header);
+    padding: 1lvh;
+    display: var(--settings-menu-display);
+    border-left: 1px solid var(--border);
+    box-sizing: border-box;
+}
+
+.settings {
+    display: inline;
+}
+
+
+
+.quick-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1lvh;
+}
+
+.settings-header {
+    display: inline;
+}
+
+.settings-header h2 {
+    margin: 0px;
+    font-size: 20px;
+}

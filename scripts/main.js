@@ -2,23 +2,42 @@
 
 import { dataHandler } from "./classes/DataHandler.js";
 
-import { CustomDropdown } from './classes/CustomDropdown.js';
+import { CustomDropdown } from "./classes/CustomDropdown.js";
 
-window.addEventListener('click', () => {
-    CustomDropdown.closeAll();
-});
 
-document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
-    new CustomDropdown(dropdown);
 
-    dropdown.addEventListener('dropdownchange', (event) => {
-        console.log('Dropdown changed:', event.detail.value);
+function changeFont(value){
+    console.log("Font changed:", value);
 
-        document.documentElement.setAttribute('data-font', event.detail.value);
-    });
-});
+    document.documentElement.setAttribute("data-font", value);
+}
+
+function changeTheme(value){
+    console.log("Theme changed:", value);
+
+    if(value === "auto"){
+        if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    } else {
+        document.documentElement.setAttribute("data-theme", value);
+    }
+}
 
 const data = await dataHandler.getData();
+
+function toggleSettings(open){
+    document.documentElement.setAttribute("data-settings", open? "open": "closed");
+}
+
+function toggleHamburger(open, button){
+    document.documentElement.setAttribute("data-hamburger", open? "open": "closed");
+    button.querySelector("i").classList.add(open? "bx-x": "bx-menu");
+    button.querySelector("i").classList.remove(open? "bx-menu": "bx-x");
+}
+
 
 function updateTitle(){
     const title = document.getElementById("header-text");
@@ -91,17 +110,51 @@ function downloadModpack(){
 }
 
 function showVersion(){
-    const versionClass = document.querySelectorAll('.version');
+    const versionClass = document.querySelectorAll(".version");
 
     versionClass.forEach((elem) => {
         elem.textContent = data.info.version;
     })
 }
 
-const modPackInstallButton = document.getElementById("download-mod-pack")
+const modPackInstallButton = document.getElementById("download-mod-pack");
 
-modPackInstallButton.addEventListener("click", downloadModpack)
+modPackInstallButton.addEventListener("click", downloadModpack);
 
+let settingsOpen = false;
+const settingsButton = document.getElementById("toggle-settings");
+
+settingsButton.addEventListener("click", () => {
+    settingsOpen = !settingsOpen
+    toggleSettings(settingsOpen);
+})
+
+let hamburgerOpen = false;
+const hamburgerButton = document.getElementById("toggle-hamburger");
+
+hamburgerButton.addEventListener("click", () => {
+    hamburgerOpen = !hamburgerOpen
+    toggleHamburger(hamburgerOpen, hamburgerButton);
+})
+
+window.addEventListener("click", () => {
+    CustomDropdown.closeAll();
+});
+
+document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
+    new CustomDropdown(dropdown);
+
+    dropdown.addEventListener("fontchange", (event) => {
+        changeFont(event.detail.value);
+    });
+
+    dropdown.addEventListener("themechange", (event) => {
+        changeTheme(event.detail.value);
+    });
+});
+
+changeFont(window.localStorage.getItem("REALegacy/font") || "mayan")
+changeTheme(window.localStorage.getItem("REALegacy/theme") || "auto");
 updateTitle();
 showModPackStatus();
 showVersion();
