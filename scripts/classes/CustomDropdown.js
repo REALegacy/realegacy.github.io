@@ -1,26 +1,27 @@
 export class CustomDropdown {
     constructor(element) {
         this.container = element;
-        this.toggle = this.container.querySelector('.dropdown-toggle');
-        this.list = this.container.querySelector('.dropdown-list');
-        this.selectedSpan = this.toggle.querySelector('span');
+        this.toggle = this.container.querySelector(".dropdown-toggle");
+        this.list = this.container.querySelector(".dropdown-list");
+        this.selectedSpan = this.toggle.querySelector("span");
 
         this.storageKey = this.container.dataset.storageKey;
+        this.customEventName = this.container.dataset.customEvent;
 
         this.init();
         this.loadSavedValue();
     }
 
     init() {
-        this.toggle.addEventListener('click', (event) => {
+        this.toggle.addEventListener("click", (event) => {
             event.stopPropagation();
 
             CustomDropdown.closeAll(this.list);
 
-            this.list.classList.toggle('open');
+            this.list.classList.toggle("open");
         });
 
-        this.container.querySelectorAll('.dropdown-options li').forEach(item => {
+        this.container.querySelectorAll(".dropdown-options li").forEach(item => {
             item.addEventListener('click', (event) => {
                 event.stopPropagation();
 
@@ -32,13 +33,13 @@ export class CustomDropdown {
     selectItem(item) {
         this.selectedSpan.innerHTML = item.innerHTML;
 
-        this.list.classList.remove('open');
+        this.list.classList.remove("open");
 
-        const value = item.getAttribute('data-value');
+        const value = item.getAttribute("data-value");
 
         localStorage.setItem(this.storageKey, value);
 
-        this.container.dispatchEvent(new CustomEvent('dropdownchange', {
+        this.container.dispatchEvent(new CustomEvent(this.customEventName, {
             detail: {value: value, item: item}
         })
     );
@@ -59,9 +60,9 @@ export class CustomDropdown {
     }
 
     static closeAll(exceptList = null) {
-        document.querySelectorAll('.dropdown-list').forEach(list => {
+        document.querySelectorAll(".dropdown-list").forEach(list => {
             if (list !== exceptList) {
-                list.classList.remove('open');
+                list.classList.remove("open");
             }
         });
     }
