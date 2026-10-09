@@ -22,6 +22,54 @@
     --cta-text: #ffffff;
 
     --font: mayan, Arial, Helvetica, sans-serif;
+
+    /* fonts */
+    --wavefont: Wavefont, Arial, Helvetica, sans-serif;
+    --sci-fi: Orbitron, Arial, Helvetica, sans-serif;
+    --cause: Cause, Arial, Helvetica, sans-serif;
+    --bar-code-text: "Libre Barcode 39 Text", Arial, Helvetica, sans-serif;
+    --lines: "Flow Block", Arial, Helvetica, sans-serif;
+    --lines-waves: Linefont, Arial, Helvetica, sans-serif;
+    --bar-code: "Libre Barcode 39", Arial, Helvetica, sans-serif;
+    --keyboard: "Libertinus Keyboard", Arial, Helvetica, sans-serif;
+    --waves: "Redacted Script", Arial, Helvetica, sans-serif;
+    --bytesized: Bytesized, Arial, Helvetica, sans-serif;
+    --christmas: "Mountains of Christmas", Arial, Helvetica, sans-serif;
+
+    --pixel: "Press Start 2P", Arial, Helvetica, sans-serif;
+    --handwriting: "Shadows Into Light", Arial, Helvetica, sans-serif;
+    --mayan: "Noto Sans Mayan Numerals", Arial, Helvetica, sans-serif;
+    --shorthand: "Noto Sans Duployan", Arial, Helvetica, sans-serif;
+    
+    --segment-display: "alarm clock", Arial, Helvetica, sans-serif;
+
+    --minecraft: "Monocraft", Arial, Helvetica, sans-serif;
+
+    --comic: "Comic Sans MS", Arial, Helvetica, sans-serif;
+}
+
+:root[data-font="mayan"] {
+    --font: var(--mayan);
+}
+
+:root[data-font="sci-fi"] {
+    --font: var(--sci-fi);
+}
+
+:root[data-font="wavefont"] {
+    --font: var(--wavefont);
+}
+
+:root[data-font="christmas"] {
+    --font: var(--christmas);
+}
+
+:root[data-font="minecraft"] {
+    --font: var(--minecraft);
+}
+
+:root[data-font="comic"] {
+    --font: var(--comic);
 }
 
 body {
@@ -49,6 +97,14 @@ header {
 }
 
 .header-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1lvh;
+}
+
+.header-right {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -232,4 +288,73 @@ header nav ul li a:hover::after {
 .label-blue {
     background-color: #1126dfab;
     color: #131313;
+}
+
+/* dropdown */
+.custom-dropdown {
+    position: relative;
+    user-select: none;
+    height: 40px;
+    align-items: center;
+    text-align: center;
+}
+
+.dropdown-selected {
+    padding: 0.5lvh;
+    background: var(--header);
+    color: var(--header-text);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    min-width: 100px;
+    height: 100%;
+    box-sizing: border-box;
+    gap: 1lvh;
+}
+
+.dropdown-selected span {
+    font-size: 15px;
+    text-align: center;
+    width: 90%;
+    height: 100%;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background: var(--header);
+    color: var(--header-text);
+    border: 1px solid var(--border);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    display: none; 
+    z-index: 1001;
+    box-shadow: var(--shadow);
+}
+
+.dropdown-options span {
+    font-size: 15px;
+    text-align: center;
+}
+
+.dropdown-options.open {
+    display: block; 
+}
+
+.dropdown-options li {
+    padding: 1lh;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 10px;
+}
+
+.dropdown-options li:hover {
+    background: var(--border);
 }
