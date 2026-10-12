@@ -3,6 +3,8 @@
 import { dataHandler } from "./classes/DataHandler.js";
 
 import { CustomDropdown } from "./classes/CustomDropdown.js";
+import { helper } from "./classes/Helper.js";
+import { GaleryCard } from "./components/galeryCard.js";
 
 
 
@@ -153,8 +155,36 @@ document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
     });
 });
 
+// galery
+
+let randomCard = null;
+
+
+function showRandomImage(){
+    const randomNum = helper.random(0, data.galery.images.length - 1);
+    const imageData = data.galery.images[randomNum]
+
+    console.log(randomNum, imageData);
+
+    if (randomCard) {
+        randomCard.destroy();
+    }
+
+    randomCard = new GaleryCard()
+
+    const parentContainer = document.getElementById('random-galery-card'); 
+    randomCard.build(imageData, parentContainer, data);
+
+    randomCard.element.classList.add("galery-card-random")
+
+    setTimeout(showRandomImage, 10000);
+}
+
+// functions
+
 changeFont(window.localStorage.getItem("REALegacy/font") || "mayan")
 changeTheme(window.localStorage.getItem("REALegacy/theme") || "auto");
 updateTitle();
 showModPackStatus();
 showVersion();
+showRandomImage()
