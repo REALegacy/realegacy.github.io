@@ -3,5 +3,70 @@
         "modPackLink": "",
         "modPackVersion": 1,
         "version": "26.2"
+    },
+    "galery": {
+        "images": [
+            {
+                "title": "jungle spawn",
+                "description": "[Test Image] afbeelding niet genomen in server. en jungle spawn",
+                "isOld": false,
+                "imageUrl": "assets/media/images/galery/jungle-test.png",
+                "auteur": {
+                    "showAuteur": true,
+                    "userId": 1
+                }
+            },
+            {
+                "title": "sulfur house",
+                "description": "huis van cinebar en sulfur",
+                "isOld": true,
+                "imageUrl": "assets/media/images/galery/sulfur-house.png",
+                "auteur": {
+                    "showAuteur": false,
+                    "userId": -1
+                }
+            },
+            {
+                "title": "base",
+                "description": "[Test Image] van andere server",
+                "isOld": false,
+                "imageUrl": "assets/media/images/galery/base-test.png",
+                "auteur": {
+                    "showAuteur": true,
+                    "userId": 2
+                }
+            }
+        ]
+    },
+    "users": {
+        "1": {
+            "showLinks": true,
+            "userName": "foodeggs7",
+            "bio": "",
+            "links" : [
+                {
+                    "type": "github",
+                    "url": "https://github.com/foodeggs7"
+                },
+                {
+                    "type": "youtube",
+                    "url": "https://www.youtube.com/@parcle_dev"
+                },
+                {
+                    "type": "twitter",
+                    "url": "https://x.com/foodeggs7"
+                },
+                {
+                    "type": "website",
+                    "url": "https://unviere.com"
+                }
+            ]
+        },
+        "2": {
+            "showLinks": false,
+            "userName": "eggsfood7",
+            "bio": "",
+            "links" : []
+        }
     }
 }

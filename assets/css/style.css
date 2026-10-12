@@ -8,12 +8,14 @@
 :root {
     --primary: #ffffff;
     --secondary: whitesmoke;
+    --background: #b9b9b9;
 
     --border: #c5c5c5;
     --shadow: 0px 2px 4px 1px #3d4444;
 
     --text-primary: #000000;
     --text-secondary: #1a1818;
+    --text-background: #1a1818;
 
     --header: var(--secondary);
     --header-text: var(--text-secondary);
@@ -53,12 +55,14 @@
 :root[data-theme="dark"] {
     --primary: #000003;
     --secondary: rgb(10, 1, 61);
+    --background: #0e0d11;
 
     --border: #2b2b2b;
     --shadow: 0px 2px 4px 1px #3d4444;
 
     --text-primary: #f7f7f7;
     --text-secondary: #ece9e9;
+    --text-background: #ece9e9;
 
     --header: var(--secondary);
     --header-text: var(--text-secondary);
@@ -108,8 +112,8 @@
 }
 
 body {
-    background-color: var(--primary);
-    color: var(--text-primary);
+    background-color: var(--background);
+    color: var(--text-background);
     padding: 0px;
     margin: 0px;
     font-family: var(--font);
@@ -353,6 +357,70 @@ header nav ul li a:hover::after {
     box-shadow: var(--shadow);
 }
 
+.galery-galery {
+    display: flex;
+    flex-direction: column;
+    gap: 1lvh;
+}
+
+.galery-top {
+    display: flex;
+    flex-direction: row;
+    gap: 1lvh;
+    height: 40px;
+}
+
+.galery-top h3 {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.galery iframe {
+    border: 2px solid var(--cta);
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.gallery-card {
+    border-radius: 10px;
+    background-color: var(--secondary);
+    color: var(--text-secondary);
+    padding: 1lvh;
+    display: flex;
+    flex-direction: column;
+    gap: 1lvh;
+}
+
+.galery-card-random {
+    width: 95%;
+}
+
+.galery-card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.galery-card-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.galery-card-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.galery-card-bottom-top {
+    display: flex;
+    gap: 1lvh;
+}
+
 .cta-button {
     background-color: var(--cta);
     color: var(--cta-text);
@@ -375,6 +443,12 @@ header nav ul li a:hover::after {
 
 .padded-section {
     padding: 1lvh;
+    background-color: var(--primary);
+}
+
+.padded-section-odd {
+    padding: 1lvh;
+    background-color: var(--background);
 }
 
 .label {
@@ -391,6 +465,11 @@ header nav ul li a:hover::after {
 
 .label-blue {
     background-color: #1126dfab;
+    color: #131313;
+}
+
+.label-orange {
+    background-color: #ec8600ab;
     color: #131313;
 }
 
