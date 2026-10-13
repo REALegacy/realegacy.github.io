@@ -79,7 +79,7 @@
             </div>
         </div>
     </header>
-    <section class="paralax bg-1" id="home">
+    <section class="paralax bg-1" id="home" data-track-title="true">
         <div class="hero">
             <div class="hero-text">
                 <h1>Welkom in REA Legacy SMP</h1>
@@ -95,7 +95,7 @@
             </div>
         </div>
     </section>
-    <section class="info padded-section" id="informatie">
+    <section class="info padded-section" id="informatie" data-track-title="true">
         <h2>Hoe zet ik mijn louncer op</h2>
         <ol class="list">
             <li>
@@ -151,7 +151,7 @@
             </li>
         </ol>
     </section>
-    <section class="galery padded-section-odd" id="galery">
+    <section class="galery padded-section-odd" id="galery" data-track-title="true">
         <h2>galery</h2>
         <p>welkom in de legacy galery hier kun je screenshots bekijken die zijn genomen in de server of je eigen screenshots toevoegen</p>
         <hr>
@@ -175,10 +175,34 @@
         <section class="galery-galery">
             <div class="galery-top">
                 <h3>Galery</h3>
-                <button class="cta-button">Show alle afbeeldingen (binnenkort)</button>
+                <button class="cta-button" id="open-galery">Show alle afbeeldingen (wip)</button>
             </div>
             <div class="galery-preview" id="random-galery-card"></div>
         </section>
+    </section>
+    <section class="popups" id="popups">
+        <div class="popup popup-galery" id="galery-popup" data-display="flex">
+            <button class="popup-close"><i class="bx bx-x"></i></button>
+            <div class="galery-popup-top galery-popup-top-grid popup-setup-run-galery" id="galery-top-grid" data-run="galery-grid" data-display="flex">
+                <h2>Galery</h2>
+            </div>
+            <div class="galery-popup-top galery-popup-top-viewer popup-setup-run-galery" id="galery-top-viewer" data-run="galery-viewer" data-display="flex">
+                <button class="popup-back" data-opens="galery-popup" data-setup-run="galery-grid"><i class="bx bx-arrow-left-stroke"></i></button>
+                <span>img:galery/1</span>
+            </div>
+            <div class="popup-galery-grid popup-setup-run-galery" id="galery-grid" data-run="galery-grid" data-display="grid">
+
+                <!-- test grid uncommend and duplicate to test -->
+                <!-- <div class="galery-grid-card">
+                    <img src="assets/media/images/galery/sulfur-house.png">
+                    <span class="galery-grid-card-title">title here</span>
+                    <div class="label label-orange galery-grid-card-label-old">Oude server</div>
+                </div> -->
+            </div>
+            <div class="galery-viewer popup-setup-run-galery" id="galery-viewer" data-run="galery-viewer" data-display="flex">
+
+            </div>
+        </div>
     </section>
     <section class="smartwatch">
         <p>bekijk deze website op je mobiel het past niet op en smartwatch sorry</p>

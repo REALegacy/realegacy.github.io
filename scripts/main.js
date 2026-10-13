@@ -5,18 +5,15 @@ import { dataHandler } from "./classes/DataHandler.js";
 import { CustomDropdown } from "./classes/CustomDropdown.js";
 import { helper } from "./classes/Helper.js";
 import { GaleryCard } from "./components/galeryCard.js";
+import { popupHandler } from "./classes/PopupHandler.js";
 
 
 
 function changeFont(value){
-    console.log("Font changed:", value);
-
     document.documentElement.setAttribute("data-font", value);
 }
 
 function changeTheme(value){
-    console.log("Theme changed:", value);
-
     if(value === "auto"){
         if(window.matchMedia("(prefers-color-scheme: dark)").matches){
             document.documentElement.setAttribute("data-theme", "dark");
@@ -53,7 +50,9 @@ function updateTitle(){
     }, {rootMargin: "-40% 0px -40% 0px"});
 
     document.querySelectorAll("section[id]").forEach((section) => {
-        observer.observe(section);
+        if(section.getAttribute("data-track-title") === "true"){
+            observer.observe(section);
+        }
     });
 }
 
@@ -164,7 +163,7 @@ function showRandomImage(){
     const randomNum = helper.random(0, data.galery.images.length - 1);
     const imageData = data.galery.images[randomNum]
 
-    console.log(randomNum, imageData);
+    // console.log(randomNum, imageData);
 
     if (randomCard) {
         randomCard.destroy();
@@ -179,6 +178,28 @@ function showRandomImage(){
 
     setTimeout(showRandomImage, 10000);
 }
+
+const openGaleryPopup = document.getElementById("open-galery");
+
+openGaleryPopup.addEventListener("click", () => {
+    popupHandler.closeAllPopups("galery-popup", "galery-grid", {}, data)
+})
+
+const closePopupButtons = document.querySelectorAll(".popup-close");
+
+closePopupButtons.forEach((elemnt) => {
+    elemnt.addEventListener("click", () => {
+        popupHandler.closeAllPopups("", "", {}, data)
+    })
+})
+
+const backPopupButtons = document.querySelectorAll(".popup-back");
+
+backPopupButtons.forEach((elemnt) => {
+    elemnt.addEventListener("click", () => {
+        popupHandler.closeAllPopups(elemnt.getAttribute("data-opens"), elemnt.getAttribute("data-setup-run"), JSON.parse(window.sessionStorage.getItem("REALegacy/lastViewingImage")), data)
+    })
+})
 
 // functions
 

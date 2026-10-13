@@ -23,6 +23,9 @@
     --cta: #388f06;
     --cta-text: #ffffff;
 
+    --red: #a30101;
+    --red-text: #ffffff;
+
     --header-height: 60px;
 
     --font: mayan, Arial, Helvetica, sans-serif;
@@ -420,6 +423,133 @@ header nav ul li a:hover::after {
     display: flex;
     gap: 1lvh;
 }
+
+/* ---- */
+
+.popups {
+    background-color: transparent;
+    position: fixed;
+    height: calc(100vh - var(--header-height));
+    width: 100%;
+    top: var(--header-height);
+    z-index: 4000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+}
+
+.popup {
+    width: 95%;
+    height: 95%;
+    background-color: var(--secondary);
+    color: var(--text-secondary);
+    position: relative;
+    padding: 1lvh;
+    border-radius: 10px;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 4002;
+    background-color: var(--red);
+    color: var(--red-text);
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-close:hover {
+    transform: translateY(-2px);
+}
+
+.popup-close:active {
+    transform: translateY(3px);
+}
+
+.popup-back {
+    background-color: var(--cta);
+    color: var(--cta-text);
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-back:hover {
+    transform: translateY(-2px);
+}
+
+.popup-back:active {
+    transform: translateY(3px);
+}
+
+.galery-popup-top {
+    display: flex;
+    flex-direction: row;
+    gap: 1lvh;
+    align-items: center;
+}
+
+.popup-galery {
+    display: flex;
+    flex-direction: column;
+    gap: 1lvh;
+}
+
+.popup-galery h2 {
+    margin: 0px;
+}
+
+.popup-galery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.galery-grid-card {
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.galery-grid-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.galery-grid-card-title {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    background-color: var(--secondary);
+    color: var(--text-secondary);
+    border-bottom-right-radius: 10px;
+}
+
+.galery-grid-card-label-old {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+/* shared */
 
 .cta-button {
     background-color: var(--cta);
