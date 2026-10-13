@@ -11,6 +11,9 @@
                 "description": "[Test Image] afbeelding niet genomen in server. en jungle spawn",
                 "isOld": false,
                 "imageUrl": "assets/media/images/galery/jungle-test.png",
+                "alt": "test image",
+                "publishTimeStamp": 0,
+                "updateTimeStamp": 0,
                 "auteur": {
                     "showAuteur": true,
                     "userId": 1
@@ -21,6 +24,9 @@
                 "description": "huis van cinebar en sulfur",
                 "isOld": true,
                 "imageUrl": "assets/media/images/galery/sulfur-house.png",
+                "alt": "je ziet een afbeelding van en huis in minecraft gebouwd met sulfur en cinebar bloken",
+                "publishTimeStamp": 0,
+                "updateTimeStamp": 0,
                 "auteur": {
                     "showAuteur": false,
                     "userId": -1
@@ -31,6 +37,9 @@
                 "description": "[Test Image] van andere server",
                 "isOld": false,
                 "imageUrl": "assets/media/images/galery/base-test.png",
+                "alt": "test image",
+                "publishTimeStamp": 0,
+                "updateTimeStamp": 0,
                 "auteur": {
                     "showAuteur": true,
                     "userId": 2
@@ -42,6 +51,8 @@
         "1": {
             "showLinks": true,
             "userName": "foodeggs7",
+            "publishTimeStamp": 0,
+            "updateTimeStamp": 0,
             "bio": "",
             "links" : [
                 {
@@ -65,6 +76,8 @@
         "2": {
             "showLinks": false,
             "userName": "eggsfood7",
+            "publishTimeStamp": 0,
+            "updateTimeStamp": 0,
             "bio": "",
             "links" : []
         }
