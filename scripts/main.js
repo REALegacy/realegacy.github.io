@@ -4,7 +4,7 @@ import { dataHandler } from "./classes/DataHandler.js";
 
 import { CustomDropdown } from "./classes/CustomDropdown.js";
 import { helper } from "./classes/Helper.js";
-import { GaleryCard } from "./components/galeryCard.js";
+import { GaleryCard } from "./components/GaleryCard.js";
 import { popupHandler } from "./classes/PopupHandler.js";
 
 
@@ -172,7 +172,7 @@ function showRandomImage(){
     randomCard = new GaleryCard()
 
     const parentContainer = document.getElementById('random-galery-card'); 
-    randomCard.build(imageData, parentContainer, data);
+    randomCard.build(imageData, parentContainer, data, true);
 
     randomCard.element.classList.add("galery-card-random")
 

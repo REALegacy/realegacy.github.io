@@ -8,12 +8,14 @@
         "images": [
             {
                 "title": "jungle spawn",
+                "id": 2,
                 "description": "[Test Image] afbeelding niet genomen in server. en jungle spawn",
                 "isOld": false,
                 "imageUrl": "assets/media/images/galery/jungle-test.png",
                 "alt": "test image",
-                "publishTimeStamp": 0,
-                "updateTimeStamp": 0,
+                "publishTimeStamp": 1791806400,
+                "updateTimeStamp": 1791979200,
+                "takenTime": "22-9-2026 00:20",
                 "auteur": {
                     "showAuteur": true,
                     "userId": 1
@@ -21,12 +23,14 @@
             },
             {
                 "title": "sulfur house",
+                "id": 1,
                 "description": "huis van cinebar en sulfur",
                 "isOld": true,
                 "imageUrl": "assets/media/images/galery/sulfur-house.png",
                 "alt": "je ziet een afbeelding van en huis in minecraft gebouwd met sulfur en cinebar bloken",
-                "publishTimeStamp": 0,
-                "updateTimeStamp": 0,
+                "publishTimeStamp": 1791806400,
+                "updateTimeStamp": 1791979200,
+                "takenTime": "25-6-2026 12:31",
                 "auteur": {
                     "showAuteur": false,
                     "userId": -1
@@ -34,12 +38,14 @@
             },
             {
                 "title": "base",
+                "id": 3,
                 "description": "[Test Image] van andere server",
                 "isOld": false,
                 "imageUrl": "assets/media/images/galery/base-test.png",
                 "alt": "test image",
-                "publishTimeStamp": 0,
-                "updateTimeStamp": 0,
+                "publishTimeStamp": 1791806400,
+                "updateTimeStamp": 1791979200,
+                "takenTime": "22-9-2026 00:20",
                 "auteur": {
                     "showAuteur": true,
                     "userId": 2

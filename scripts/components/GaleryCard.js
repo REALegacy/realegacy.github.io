@@ -3,7 +3,7 @@ import { builder } from "../classes/Builder.js";
 export class GaleryCard {
     element;
 
-    build(data, parent, allData) {
+    build(data, parent, allData, isRandomPreview) {
         this.element = document.createElement("div");
         this.element.classList.add('gallery-card');
 
@@ -42,6 +42,10 @@ export class GaleryCard {
                 {
                     type:"src",
                     content: data.imageUrl
+                },
+                {
+                    type:"alt",
+                    content: data.alt
                 }
             ], "", this.element
         )
@@ -107,6 +111,14 @@ export class GaleryCard {
                     {
                        type: "data-links",
                        content: links 
+                    },
+                    {
+                        type:"data-opens",
+                        content: isRandomPreview? "profile-popup" : "galery-popup"
+                    },
+                    {
+                        type:"data-setup-run",
+                        content: isRandomPreview? "" : "galery-profile"
                     }
                 ], "Bekijk profiel (binnenkort)", cardBottomTop
             )
@@ -116,6 +128,24 @@ export class GaleryCard {
             [
                 "galery-card-desc"
             ], [], data.description, cardBottom
+        )
+
+        builder.addElement("hr", "", [], [], "", this.element);
+
+        const footer = builder.addElement("div", "",
+            [
+                "galery-card-footer"
+            ], [], "", this.element
+        )
+
+        const pagePublishDate = new Date(data.publishTimeStamp * 1000);
+        const pageUpdateDate = new Date(data.updateTimeStamp * 1000);
+
+        
+
+        builder.addElement("span", "", [],[], 
+            `afbeelding genomen: ${data.takenTime} | afbeelding data aangemaakt: ${pagePublishDate.toLocaleDateString()} ${pagePublishDate.getHours()}:${pagePublishDate.getMinutes().toString().padStart(2, '0')} | afbeelding data updated: ${pageUpdateDate.toLocaleDateString()} ${pageUpdateDate.getHours()}:${pageUpdateDate.getMinutes().toString().padStart(2, '0')}`,
+            footer
         )
 
         parent.appendChild(this.element);

@@ -13,7 +13,53 @@ export class GaleryGridCard {
         const card = builder.addElement("div", "",
             [
                 "galery-grid-card"
-            ], [], "", this.element
+            ], 
+            [
+                {
+                    type:"data-title",
+                    content:data.title
+                },
+                {
+                    type:"data-id",
+                    content:data.id
+                },
+                {
+                    type:"data-description",
+                    content:data.description
+                },
+                {
+                    type:"data-is-old",
+                    content:data.isOld ? "true" : "false"
+                },
+                {
+                    type:"data-image-url",
+                    content:data.imageUrl
+                },
+                {
+                    type:"data-alt",
+                    content:data.alt
+                },
+                {
+                    type:"data-publish-time-stamp",
+                    content:data.publishTimeStamp
+                },
+                {
+                    type:"data-update-time-stamp",
+                    content:data.updateTimeStamp
+                },
+                {
+                    type:"data-taken-time",
+                    content:data.takenTime
+                },
+                {
+                    type:"data-show-auteur",
+                    content:data.auteur.showAuteur? "true" : "false"
+                },
+                {
+                    type:"data-user-id",
+                    content:data.auteur.userId
+                }
+            ], "", this.element
         )
 
         builder.addElement("img", "", 

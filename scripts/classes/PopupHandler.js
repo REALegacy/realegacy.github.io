@@ -26,6 +26,16 @@ class PopupHandler {
             }
         }  
     }
+
+    getLinksObjectFromString(){
+
+    }
+
+    open(type, data, allData){
+        if(type === "galeryViewer"){
+            this.closeAllPopups("galery-popup", "galery-viewer", data, allData);
+        }
+    }
 }
 
 export const popupHandler = new PopupHandler();
