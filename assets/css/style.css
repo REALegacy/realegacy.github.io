@@ -397,13 +397,17 @@ header nav ul li a:hover::after {
 }
 
 .galery-card-random {
-    width: 95%;
+    width: calc(100% - 2lvh);
 }
 
 .galery-card-img {
     width: 100%;
     height: auto;
     border-radius: 10px;
+}
+
+.gallery-card hr {
+    width: 95%;
 }
 
 .galery-card-title {
@@ -422,6 +426,12 @@ header nav ul li a:hover::after {
 .galery-card-bottom-top {
     display: flex;
     gap: 1lvh;
+}
+
+.galery-card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 /* ---- */
@@ -499,6 +509,7 @@ header nav ul li a:hover::after {
     flex-direction: row;
     gap: 1lvh;
     align-items: center;
+    min-height: 50px;
 }
 
 .popup-galery {
@@ -547,6 +558,16 @@ header nav ul li a:hover::after {
     position: absolute;
     bottom: 5px;
     right: 5px;
+}
+
+.galery-viewer {
+    height: calc(100% - 50px - 3lvh)
+}
+
+.galery-card-viewer {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
 }
 
 /* shared */
