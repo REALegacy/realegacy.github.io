@@ -79,7 +79,7 @@
             </div>
         </div>
     </header>
-    <section class="paralax bg-1" id="home">
+    <section class="paralax bg-1" id="home" data-track-title="true">
         <div class="hero">
             <div class="hero-text">
                 <h1>Welkom in REA Legacy SMP</h1>
@@ -95,7 +95,7 @@
             </div>
         </div>
     </section>
-    <section class="info padded-section" id="informatie">
+    <section class="info padded-section" id="informatie" data-track-title="true">
         <h2>Hoe zet ik mijn louncer op</h2>
         <ol class="list">
             <li>
@@ -150,6 +150,59 @@
                 <span>geef de server en naam en voor de server adress kun je en admin vraagen klik Done en je kunt gaan beginnen met het bouwen van je legacy</span>
             </li>
         </ol>
+    </section>
+    <section class="galery padded-section-odd" id="galery" data-track-title="true">
+        <h2>galery</h2>
+        <p>welkom in de legacy galery hier kun je screenshots bekijken die zijn genomen in de server of je eigen screenshots toevoegen</p>
+        <hr>
+        <details>
+            <summary>voeg je eigen screenshots toe</summary>
+            <p>vul het formulier in om je eigen screenshots toe te voegen dit wordt handmatig gedaan zo het kan even duuren</p>
+            <p>en gebruikersnaam is niet verplicht je mag ook anoniem gaan</p>
+            <iframe data-tally-src="https://tally.so/embed/kdDvxd?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="445" frameborder="0" marginheight="0" marginwidth="0" title="Voeg een afbeelding aan de galery toe"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </details>
+        <details>
+            <summary>vul je profiel info in</summary>
+            <p>en profiel is wat iedereen kan zien hier kun je kort iets over jezelf vertellen wat je zowel online doet</p>
+            <p>je kunt hier linkjes toevoegen naar je sociale media of je eigen website</p>
+            <p>je gebruikersnaam in je profiel zal je ook moeten gebruiken waaneer je en afbeelding uplaod zodat mensen bij je profiel kunnen komen via jouw afbeelding</p>
+            <p>dit is niet verplicht je kunt ook anoniem en afbeelding toevoegen en er zal dan geen profiel zijn</p>
+            <iframe data-tally-src="https://tally.so/embed/44WzbY?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="905" frameborder="0" marginheight="0" marginwidth="0" title="edit profile"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </details>
+        <hr>
+        <section class="galery-galery">
+            <div class="galery-top">
+                <h3>Galery</h3>
+                <button class="cta-button" id="open-galery">Show alle afbeeldingen</button>
+            </div>
+            <div class="galery-preview" id="random-galery-card"></div>
+        </section>
+    </section>
+    <section class="popups" id="popups">
+        <div class="popup popup-galery" id="galery-popup" data-display="flex">
+            <button class="popup-close"><i class="bx bx-x"></i></button>
+            <div class="galery-popup-top galery-popup-top-grid popup-setup-run-galery" id="galery-top-grid" data-run="galery-grid" data-display="flex">
+                <h2>Galery</h2>
+            </div>
+            <div class="galery-popup-top galery-popup-top-viewer popup-setup-run-galery" id="galery-top-viewer" data-run="galery-viewer" data-display="flex">
+                <button class="popup-back" data-opens="galery-popup" data-setup-run="galery-grid"><i class="bx bx-arrow-left-stroke"></i></button>
+                <span id="popup-galery-viewer-title-bar">img:galery/1</span>
+            </div>
+            <div class="popup-galery-grid popup-setup-run-galery" id="galery-grid" data-run="galery-grid" data-display="grid">
+
+                <!-- test grid uncommend and duplicate to test -->
+                <!-- <div class="galery-grid-card">
+                    <img src="assets/media/images/galery/sulfur-house.png">
+                    <span class="galery-grid-card-title">title here</span>
+                    <div class="label label-orange galery-grid-card-label-old">Oude server</div>
+                </div> -->
+            </div>
+            <div class="galery-viewer popup-setup-run-galery" id="galery-viewer" data-run="galery-viewer" data-display="flex">
+
+            </div>
+        </div>
     </section>
     <section class="smartwatch">
         <p>bekijk deze website op je mobiel het past niet op en smartwatch sorry</p>

@@ -18,7 +18,7 @@ body * {
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 2000;
+    z-index: 7000;
     align-items: center;
     justify-content: center;
 }

@@ -3,5 +3,89 @@
         "modPackLink": "",
         "modPackVersion": 1,
         "version": "26.2"
+    },
+    "galery": {
+        "images": [
+            {
+                "title": "jungle spawn",
+                "id": 2,
+                "description": "[Test Image] afbeelding niet genomen in server. en jungle spawn",
+                "isOld": false,
+                "imageUrl": "assets/media/images/galery/jungle-test.png",
+                "alt": "test image",
+                "publishTimeStamp": 1791806400,
+                "updateTimeStamp": 1791979200,
+                "takenTime": "22-9-2026 00:20",
+                "auteur": {
+                    "showAuteur": true,
+                    "userId": 1
+                }
+            },
+            {
+                "title": "sulfur house",
+                "id": 1,
+                "description": "huis van cinebar en sulfur",
+                "isOld": true,
+                "imageUrl": "assets/media/images/galery/sulfur-house.png",
+                "alt": "je ziet een afbeelding van en huis in minecraft gebouwd met sulfur en cinebar bloken",
+                "publishTimeStamp": 1791806400,
+                "updateTimeStamp": 1791979200,
+                "takenTime": "25-6-2026 12:31",
+                "auteur": {
+                    "showAuteur": false,
+                    "userId": -1
+                }
+            },
+            {
+                "title": "base",
+                "id": 3,
+                "description": "[Test Image] van andere server",
+                "isOld": false,
+                "imageUrl": "assets/media/images/galery/base-test.png",
+                "alt": "test image",
+                "publishTimeStamp": 1791806400,
+                "updateTimeStamp": 1791979200,
+                "takenTime": "22-9-2026 00:20",
+                "auteur": {
+                    "showAuteur": true,
+                    "userId": 2
+                }
+            }
+        ]
+    },
+    "users": {
+        "1": {
+            "showLinks": true,
+            "userName": "foodeggs7",
+            "publishTimeStamp": 0,
+            "updateTimeStamp": 0,
+            "bio": "",
+            "links" : [
+                {
+                    "type": "github",
+                    "url": "https://github.com/foodeggs7"
+                },
+                {
+                    "type": "youtube",
+                    "url": "https://www.youtube.com/@parcle_dev"
+                },
+                {
+                    "type": "twitter",
+                    "url": "https://x.com/foodeggs7"
+                },
+                {
+                    "type": "website",
+                    "url": "https://unviere.com"
+                }
+            ]
+        },
+        "2": {
+            "showLinks": false,
+            "userName": "eggsfood7",
+            "publishTimeStamp": 0,
+            "updateTimeStamp": 0,
+            "bio": "",
+            "links" : []
+        }
     }
 }
