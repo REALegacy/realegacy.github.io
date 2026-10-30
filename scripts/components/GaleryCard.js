@@ -1,4 +1,31 @@
 import { builder } from "../classes/Builder.js";
+import Translator from "../classes/Translator.js";
+
+const supportedLanguages = {
+    en: "en_us",
+    nl: "nl_nl"
+};
+
+function getSysLang() {
+    const lang = navigator.language.toLowerCase().split("-")[0];
+
+    return supportedLanguages[lang] ?? "en_us";
+}
+
+function isProduction() {
+    const localSimulateProduction = false;
+    const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+
+    return !isLocal || localSimulateProduction;
+}
+
+const translator = new Translator({
+    basePath: "data/lang",
+    language: window.localStorage.getItem("REALegacy/lang") || getSysLang(),
+    production: isProduction()
+})
+
+translator.load();
 
 export class GaleryCard {
     element;
@@ -30,7 +57,7 @@ export class GaleryCard {
                 [
                     "label",
                     "label-orange"
-                ], [], "Oude server", cardTop
+                ], [], translator.translate("page.galery.pictures.tag.old_server", "Oude server"), cardTop
             )
         }
 
@@ -69,7 +96,7 @@ export class GaleryCard {
         builder.addElement("span", "",
             [
                 "galery-card-auteur"
-            ], [], (showUser ? "Bij: " +  user.userName : ""), cardBottomTop
+            ], [], (showUser ? translator.translate("page.galery.pictures.by","Bij: ") +  user.userName : ""), cardBottomTop
         )
 
         if(showUser){
@@ -120,7 +147,7 @@ export class GaleryCard {
                         type:"data-setup-run",
                         content: isRandomPreview? "" : "galery-profile"
                     }
-                ], "Bekijk profiel (binnenkort)", cardBottomTop
+                ], translator.translate("page.galery.pictures.see_profile","Bekijk profiel (binnenkort)"), cardBottomTop
             )
         }
 
@@ -144,7 +171,7 @@ export class GaleryCard {
         
 
         builder.addElement("span", "", [],[], 
-            `afbeelding genomen: ${data.takenTime} | afbeelding data aangemaakt: ${pagePublishDate.toLocaleDateString()} ${pagePublishDate.getHours()}:${pagePublishDate.getMinutes().toString().padStart(2, '0')} | afbeelding data updated: ${pageUpdateDate.toLocaleDateString()} ${pageUpdateDate.getHours()}:${pageUpdateDate.getMinutes().toString().padStart(2, '0')}`,
+            `${translator.translate("page.galery.pictures.taken", "afbeelding genomen: ")} ${data.takenTime} | ${translator.translate("page.galery.pictures.made", "afbeelding data aangemaakt:")} ${pagePublishDate.toLocaleDateString()} ${pagePublishDate.getHours()}:${pagePublishDate.getMinutes().toString().padStart(2, '0')} | ${translator.translate("page.galery.pictures.updated", "afbeelding data updated: ")} ${pageUpdateDate.toLocaleDateString()} ${pageUpdateDate.getHours()}:${pageUpdateDate.getMinutes().toString().padStart(2, '0')}`,
             footer
         )
 

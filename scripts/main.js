@@ -6,6 +6,47 @@ import { CustomDropdown } from "./classes/CustomDropdown.js";
 import { helper } from "./classes/Helper.js";
 import { GaleryCard } from "./components/GaleryCard.js";
 import { popupHandler } from "./classes/PopupHandler.js";
+import Translator from "./classes/Translator.js";
+
+const supportedLanguages = {
+    en: "en_us",
+    nl: "nl_nl"
+};
+
+function getSysLang() {
+    const lang = navigator.language.toLowerCase().split("-")[0];
+
+    return supportedLanguages[lang] ?? "en_us";
+}
+
+function isProduction() {
+    const localSimulateProduction = false;
+    const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+
+    return !isLocal || localSimulateProduction;
+}
+
+const translator = new Translator({
+    basePath: "data/lang",
+    language: window.localStorage.getItem("REALegacy/lang") || getSysLang(),
+    production: isProduction()
+})
+
+translator.load();
+
+function loadTranslations() {
+    const translatables = document.querySelectorAll(".translatable");
+
+    translatables.forEach((element) => {
+        if (element.getAttribute("data-translation-key")) {
+            element.textContent = translator.translate(element.getAttribute("data-translation-key"), element.getAttribute("data-default-translation"));
+        }
+
+        if (element.getAttribute("data-alt-translation-key")) {
+            element.alt = translator.translate(element.getAttribute("data-alt-translation-key"), element.getAttribute("data-alt-default-translation"));
+        }
+    })
+}
 
 
 
@@ -44,7 +85,7 @@ function updateTitle(){
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                title.textContent = entry.target.id;
+                title.textContent = translator.translate(entry.target.getAttribute("data-title-key"), entry.target.id);
             }
         });
     }, {rootMargin: "-40% 0px -40% 0px"});
@@ -56,11 +97,13 @@ function updateTitle(){
     });
 }
 
+
+
 function updateModPackStatus(isCompitable) {
     const statusLabel = document.getElementById("modpack-status");
 
-    statusLabel.textContent = isCompitable? 'Laatste versie' : 'Update beschikbaar';
-    statusLabel.style.color = isCompitable? '#004d26' : '#690202';
+    statusLabel.textContent = isCompitable ? translator.translate("page.home.modpack_status.up_to_date", "Laatste versie") : translator.translate("page.home.modpack_status.needs_update", "Update beschikbaar");
+    statusLabel.style.color = isCompitable ? '#004d26' : '#690202';
 }
 
 function showModPackStatus() {
@@ -152,6 +195,10 @@ document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
     dropdown.addEventListener("themechange", (event) => {
         changeTheme(event.detail.value);
     });
+
+    dropdown.addEventListener("langchange", (event) => {
+        window.location.reload();
+    })
 });
 
 // galery
@@ -208,4 +255,5 @@ changeTheme(window.localStorage.getItem("REALegacy/theme") || "auto");
 updateTitle();
 showModPackStatus();
 showVersion();
-showRandomImage()
+showRandomImage();
+loadTranslations();
