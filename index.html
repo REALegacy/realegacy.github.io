@@ -24,10 +24,10 @@
         <div class="header-right">
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="#home">home</a></li>
-                    <li><a href="#informatie">informatie</a></li>
-                    <li><a href="#regels">regels</a></li>
-                    <li><a href="#galery">galery</a></li>
+                    <li><a href="#home" class="translatable" data-translation-key="page.home.title" data-default-translation="Home"></a></li>
+                    <li><a href="#informatie" class="translatable" data-translation-key="page.info.title" data-default-translation="informatie"></a></li>
+                    <li><a href="#regels" class="translatable" data-translation-key="page.rules.title" data-default-translation="regels"></a></li>
+                    <li><a href="#galery" class="translatable" data-translation-key="page.galery.title" data-default-translation="galery"></a></li>
                 </ul>
             </nav>
             <button class="settings" id="toggle-settings"><i class="bx bx-cog"></i></button>
@@ -36,7 +36,7 @@
                 <div class="header-stuff-desktop-mobile">
                     <div class="quick-settings">
                         <div class="settings-header">
-                            <h2>Instellingen</h2>
+                            <h2 class="translatable" data-translation-key="navbar.settings" data-default-translation="Instellingen"></h2>
                         </div>
                         <div class="custom-dropdown" data-storage-key="REALegacy/font" data-custom-event="fontchange">
                             <div class="dropdown-selected dropdown-toggle">
@@ -66,27 +66,38 @@
                                 <li data-value="light"><span><i class="bx bx-sun"></i> Light</span></li>
                             </ul>
                         </div>
+                        <div class="custom-dropdown" data-storage-key="REALegacy/lang" data-custom-event="langchange">
+                            <div class="dropdown-selected dropdown-toggle">
+                                <span><i class="flag-nl" aria-label="Dutch"></i> NL</span>
+                                <i class="bx bx-chevron-down"></i>
+                            </div>
+
+                            <ul class="dropdown-options dropdown-list">
+                                <li data-value="nl_nl"><span><i class="flag-nl" aria-label="Dutch"></i> NL</span></li>
+                                <li data-value="en_us"><span><i class="flag-us" aria-label="English (US)"></i> EN</span></li>
+                            </ul>
+                        </div>
                     </div>
                     <nav class="mobile-nav">
                         <ul>
-                            <li><a href="#home">home</a></li>
-                            <li><a href="#informatie">informatie</a></li>
-                            <li><a href="#regels">regels</a></li>
-                            <li><a href="#galery">galery</a></li>
+                            <li><a href="#home" class="translatable" data-translation-key="page.home.title" data-default-translation="Home"></a></li>
+                            <li><a href="#informatie" class="translatable" data-translation-key="page.info.title" data-default-translation="informatie"></a></li>
+                            <li><a href="#regels" class="translatable" data-translation-key="page.rules.title" data-default-translation="regels"></a></li>
+                            <li><a href="#galery" class="translatable" data-translation-key="page.galery.title" data-default-translation="galery"></a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <section class="paralax bg-1" id="home" data-track-title="true">
+    <section class="paralax bg-1" id="home" data-track-title="true" data-title-key="page.home.title">
         <div class="hero">
             <div class="hero-text">
-                <h1>Welkom in REA Legacy SMP</h1>
-                <p>Bouw jouw legacy in REA Legacy SMP Alles wat je hoeft te doen is en moddable louncer instaleren en onze modpack op je client te zetten</p>
+                <h1 class="translatable" data-translation-key="page.home.hero.title" data-default-translation="Welkom in REA Legacy SMP"></h1>
+                <p class="translatable" data-translation-key="page.home.hero.description" data-default-translation="Bouw jouw legacy in REA Legacy SMP Alles wat je hoeft te doen is en moddable louncer instaleren en onze modpack op je client te zetten"></p>
                 <div class="hero-bottom">
                     <button class="cta-button" id="download-mod-pack"><i class="bx bx-arrow-to-bottom"></i> Download modPack</button>
-                    <span>modpack status: <span id="modpack-status">Unknown</span></span>
+                    <span><span class="translatable" data-translation-key="page.home.modpack_status" data-default-translation="modpack status: "></span><span id="modpack-status">Unknown</span></span>
                 </div>
                 <div class="hero-tags">
                     <div class="label label-green">Loader: fabric</div>
@@ -95,87 +106,103 @@
             </div>
         </div>
     </section>
-    <section class="info padded-section" id="informatie" data-track-title="true">
-        <h2>Hoe zet ik mijn louncer op</h2>
+    <section class="info padded-section" id="informatie" data-track-title="true" data-title-key="page.info.title">
+        <h2 class="translatable" data-translation-key="page.info.section.title" data-default-translation="Hoe zet ik mijn louncer op"></h2>
         <ol class="list">
             <li>
-                <span>download de mods zip hierboven die moet je hebben om de server te kunnen starten</span>
+                <span class="translatable" data-translation-key="page.info.step1" data-default-translation="download de mods zip hierboven die moet je hebben om de server te kunnen starten"></span>
             </li>
             <li>
-                <span>instaleer en louncer dat mods suport als je die nog niet hebt bijvoorbeeld: <a href="https://modrinth.com/app">Modrinth</a> of <a href="https://www.curseforge.com/download/app">Curse forge</a></span>
+                <span><span class="translatable" data-translation-key="page.info.step2.1" data-default-translation="instaleer en louncer dat mods suport als je die nog niet hebt bijvoorbeeld: "></span><a href="https://modrinth.com/app">Modrinth</a> <span class="translatable" data-translation-key="page.info.step2.2" data-default-translation="of"></span> <a href="https://www.curseforge.com/download/app">Curse forge</a>.</span>
             </li>
             <li>
-                <span>maak en nieuw profiel aan ik gebruik Modrinth als voorbeeld</span>
+                <span class="translatable" data-translation-key="page.info.step3" data-default-translation="maak en nieuw profiel aan ik gebruik Modrinth als voorbeeld"></span>
                 <div class="list-image-center">
-                    <img class="width-50" src="./assets/media//images/tutorial/info-1.png" alt="afbeelding over hoe je en profiel toevoegd">
+                    <img class="width-50 translatable" src="./assets/media//images/tutorial/info-1.png" data-alt-translation-key="page.info.alt1" data-alt-default-translation="afbeelding over hoe je en profiel toevoegd">
                 </div>
             </li>
             <li>
-                <span>select custom setup</span>
+                <span class="translatable" data-translation-key="page.info.step4" data-default-translation="select custom setup"></span>
                 <div class="list-image-center">
-                    <img class="width-20" src="./assets/media//images/tutorial/info-2.png" alt="in de afbeelding zie je en menu met keuzes wij kiezen custom setup">
+                    <img class="width-20 translatable" src="./assets/media//images/tutorial/info-2.png" data-alt-translation-key="page.info.alt2" data-alt-default-translation="in de afbeelding zie je en menu met keuzes wij kiezen custom setup">
                 </div>
             </li>
             <li>
-                <span>nu moet je de instance en naam gecen, selecteer fabric als loader en zorg ervoor dat je de goede version instelt wat je op de landings pagina kunt (<span class="version">?</span>)</span>
+                <span><span class="translatable" data-translation-key="page.info.step5" data-default-translation="nu moet je de instance en naam gecen, selecteer fabric als loader en zorg ervoor dat je de goede version instelt wat je op de landings pagina kunt"></span>(<span class="version">?</span>)</span>
                 <div class="list-image-center">
-                    <img class="width-20" src="./assets/media//images/tutorial/info-3.png" alt="in de afbeelding zie je de belangrijkste settings voor de instance">
+                    <img class="width-20 translatable" src="./assets/media//images/tutorial/info-3.png" data-alt-translation-key="page.info.alt3" data-alt-default-translation="in de afbeelding zie je de belangrijkste settings voor de instance">
                 </div>
             </li>
             <li>
-                <span>Bij de 3 puntjes moet je Open folder selecteren zodat we in de bestanden van de instance komen</span>
+                <span class="translatable" data-translation-key="page.info.step6" data-default-translation="Bij de 3 puntjes moet je Open folder selecteren zodat we in de bestanden van de instance komen"></span>
                 <div class="list-image-center">
-                    <img class="width-50" src="./assets/media//images/tutorial/info-4.png" alt="in de afbeelding zie je wat je moet hebben om de bestanden te openen">
+                    <img class="width-50 translatable" src="./assets/media//images/tutorial/info-4.png" data-alt-translation-key="page.info.alt4" data-alt-default-translation="in de afbeelding zie je wat je moet hebben om de bestanden te openen">
                 </div>
             </li>
             <li>
-                <span>Open de mods folder hierin moet je de inhoud van de zip dat je boven kunt downloaden plaatsen</span>
+                <span class="translatable" data-translation-key="page.info.step7" data-default-translation="Open de mods folder hierin moet je de inhoud van de zip dat je boven kunt downloaden plaatsen"></span>
             </li>
             <li>
-                <span>Je kunt zelf nog wat client only mods toevoegen als je dat wilt</span>
+                <span class="translatable" data-translation-key="page.info.step8" data-default-translation="Je kunt zelf nog wat client only mods toevoegen als je dat wilt"></span>
             </li>
             <li>
-                <span>Start minecraft via de modable louncer zodat het je mods laad</span>
+                <span class="translatable" data-translation-key="page.info.step9" data-default-translation="Start minecraft via de modable louncer zodat het je mods laad"></span>
             </li>
             <li>
-                <span>wacht voor de "press enter to enable narator" jumpscare</span>
+                <span class="translatable" data-translation-key="page.info.step10" data-default-translation="wacht voor de 'press enter to enable narator ' jumpscare"></span>
             </li>
             <li>
-                <span>ga naar multiplayer en dan Add Server</span>
+                <span class="translatable" data-translation-key="page.info.step11" data-default-translation="ga naar multiplayer en dan Add Server"></span>
                 <div class="list-image-center">
-                    <img width="50%" src="./assets/media//images/tutorial/info-5.png" alt="in de afbeelding zie je hoe je en server kunt toevoegen">
+                    <img width="50%" class="translatable" src="./assets/media//images/tutorial/info-5.png" data-alt-translation-key="page.info.alt5" data-alt-default-translation="in de afbeelding zie je hoe je en server kunt toevoegen">
                 </div>
             </li>
             <li>
-                <span>geef de server en naam en voor de server adress kun je en admin vraagen klik Done en je kunt gaan beginnen met het bouwen van je legacy</span>
+                <span class="translatable" data-translation-key="page.info.step12" data-default-translation="geef de server en naam en voor de server adress kun je en admin vraagen klik Done en je kunt gaan beginnen met het bouwen van je legacy"></span>
             </li>
         </ol>
     </section>
-    <section class="galery padded-section-odd" id="galery" data-track-title="true">
-        <h2>galery</h2>
-        <p>welkom in de legacy galery hier kun je screenshots bekijken die zijn genomen in de server of je eigen screenshots toevoegen</p>
+    <section class="galery padded-section-odd" id="galery" data-track-title="true" data-title-key="page.galery.title">
+        <h2 class="translatable" data-translation-key="page.galery.section.title" data-default-translation="galery"></h2>
+        <p class="translatable" data-translation-key="page.galery.info1" data-default-translation="welkom in de legacy galery hier kun je screenshots bekijken die zijn genomen in de server of je eigen screenshots toevoegen"></p>
         <hr>
         <details>
-            <summary>voeg je eigen screenshots toe</summary>
-            <p>vul het formulier in om je eigen screenshots toe te voegen dit wordt handmatig gedaan zo het kan even duuren</p>
-            <p>en gebruikersnaam is niet verplicht je mag ook anoniem gaan</p>
+            <summary class="translatable" data-translation-key="page.galery.info.screenshot.summary" data-default-translation="voeg je eigen screenshots toe"></summary>
+            <p class="translatable" data-translation-key="page.galery.info.screenshot.details1" data-default-translation="vul het formulier in om je eigen screenshots toe te voegen dit wordt handmatig gedaan zo het kan even duuren"></p>
+            <p class="translatable" data-translation-key="page.galery.info.screenshot.details2" data-default-translation="en gebruikersnaam is niet verplicht je mag ook anoniem gaan"></p>
             <iframe data-tally-src="https://tally.so/embed/kdDvxd?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="445" frameborder="0" marginheight="0" marginwidth="0" title="Voeg een afbeelding aan de galery toe"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </details>
         <details>
-            <summary>vul je profiel info in</summary>
-            <p>en profiel is wat iedereen kan zien hier kun je kort iets over jezelf vertellen wat je zowel online doet</p>
-            <p>je kunt hier linkjes toevoegen naar je sociale media of je eigen website</p>
-            <p>je gebruikersnaam in je profiel zal je ook moeten gebruiken waaneer je en afbeelding uplaod zodat mensen bij je profiel kunnen komen via jouw afbeelding</p>
-            <p>dit is niet verplicht je kunt ook anoniem en afbeelding toevoegen en er zal dan geen profiel zijn</p>
+            <summary class="translatable" data-translation-key="page.galery.info.profile.summary" data-default-translation="vul je profiel info in"></summary>
+            <p class="translatable" data-translation-key="page.galery.info.profile.details1" data-default-translation="en profiel is wat iedereen kan zien hier kun je kort iets over jezelf vertellen wat je zowel online doet"></p>
+            <p class="translatable" data-translation-key="page.galery.info.profile.details2" data-default-translation="je kunt hier linkjes toevoegen naar je sociale media of je eigen website"></p>
+            <p class="translatable" data-translation-key="page.galery.info.profile.details3" data-default-translation="je gebruikersnaam in je profiel zal je ook moeten gebruiken waaneer je en afbeelding uplaod zodat mensen bij je profiel kunnen komen via jouw afbeelding"></p>
+            <p class="translatable" data-translation-key="page.galery.info.profile.details4" data-default-translation="dit is niet verplicht je kunt ook anoniem en afbeelding toevoegen en er zal dan geen profiel zijn"></p>
             <iframe data-tally-src="https://tally.so/embed/44WzbY?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="905" frameborder="0" marginheight="0" marginwidth="0" title="edit profile"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </details>
         <hr>
+        <details>
+            <summary class="translatable" data-translation-key="page.galery.info.tips.summary" data-default-translation="Tips voor mooie screenshots."></summary>
+            <p class="translatable" data-translation-key="page.galery.info.tips.details1" data-default-translation="Hier zijn wat tips om mooiere screenshots te maken."></p>
+            <ol class="list">
+                <li>
+                    <span class="translatable" data-translation-key="page.galery.info.tips.details.tip1" data-default-translation="Gebruik F1 om de UI te verstoppen."></span>
+                </li>
+                <li>
+                    <span class="translatable" data-translation-key="page.galery.info.tips.details.tip2" data-default-translation="Gebruik shaders."></span>
+                </li>
+                <li>
+                    <span class="translatable" data-translation-key="page.galery.info.tips.details.tip3" data-default-translation="Gebruik F2 om aleen Minecraft op de screenshot te hebben."></span>
+                </li>
+            </ol>
+        </details>
+        <hr>
         <section class="galery-galery">
             <div class="galery-top">
-                <h3>Galery</h3>
-                <button class="cta-button" id="open-galery">Show alle afbeeldingen</button>
+                <h3 class="translatable" data-translation-key="page.galery.section2.title" data-default-translation="Galery"></h3>
+                <button class="cta-button translatable" id="open-galery" data-translation-key="page.galery.pictures.show_all" data-default-translation="Show alle afbeeldingen"></button>
             </div>
             <div class="galery-preview" id="random-galery-card"></div>
         </section>
@@ -184,7 +211,7 @@
         <div class="popup popup-galery" id="galery-popup" data-display="flex">
             <button class="popup-close"><i class="bx bx-x"></i></button>
             <div class="galery-popup-top galery-popup-top-grid popup-setup-run-galery" id="galery-top-grid" data-run="galery-grid" data-display="flex">
-                <h2>Galery</h2>
+                <h2 class="translatable" data-translation-key="page.galery.title" data-default-translation="Galery"></h2>
             </div>
             <div class="galery-popup-top galery-popup-top-viewer popup-setup-run-galery" id="galery-top-viewer" data-run="galery-viewer" data-display="flex">
                 <button class="popup-back" data-opens="galery-popup" data-setup-run="galery-grid"><i class="bx bx-arrow-left-stroke"></i></button>
