@@ -11,6 +11,7 @@ export default class Translator {
 
         this.translations = {};
     }
+    
 
     getCacheKey(language) {
         return `translations_${language}`;
@@ -55,10 +56,7 @@ export default class Translator {
 
         if (this.cacheEnabled) {
             try {
-                sessionStorage.setItem(
-                    cacheKey,
-                    JSON.stringify({timestamp: Date.now(),translations})
-                );
+                sessionStorage.setItem(cacheKey,JSON.stringify({timestamp: Date.now(),translations}));
             } catch (error) {
                 console.warn("Could not save translation cache:", error);
             }
