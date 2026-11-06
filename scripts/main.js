@@ -32,9 +32,9 @@ const translator = new Translator({
     production: isProduction()
 })
 
-translator.load();
+async function loadTranslations() {
+    await translator.load();
 
-function loadTranslations() {
     const translatables = document.querySelectorAll(".translatable");
 
     translatables.forEach((element) => {
@@ -103,7 +103,7 @@ function updateModPackStatus(isCompitable) {
     const statusLabel = document.getElementById("modpack-status");
 
     statusLabel.textContent = isCompitable ? translator.translate("page.home.modpack_status.up_to_date", "Laatste versie") : translator.translate("page.home.modpack_status.needs_update", "Update beschikbaar");
-    statusLabel.style.color = isCompitable ? '#004d26' : '#690202';
+    statusLabel.style.color = isCompitable ? 'var(--state-green)' : 'var(state-red)';
 }
 
 function showModPackStatus() {

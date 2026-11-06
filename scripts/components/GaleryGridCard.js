@@ -1,6 +1,27 @@
 import { builder } from "../classes/Builder.js";
 import { helper } from "../classes/Helper.js";
+import Translator from "../classes/Translator.js";
 
+function getSysLang() {
+    const lang = navigator.language.toLowerCase().split("-")[0];
+
+    return supportedLanguages[lang] ?? "en_us";
+}
+
+function isProduction() {
+    const localSimulateProduction = false;
+    const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+
+    return !isLocal || localSimulateProduction;
+}
+
+const translator = new Translator({
+    basePath: "data/lang",
+    language: window.localStorage.getItem("REALegacy/lang") || getSysLang(),
+    production: isProduction()
+})
+
+translator.load();
 
 export class GaleryGridCard {
     element;
@@ -88,7 +109,7 @@ export class GaleryGridCard {
                     "label",
                     "label-orange",
                     "galery-grid-card-label-old"
-                ], [], "Oude server", card
+                ], [], translator.translate("page.galery.pictures.tag.old_server", "Oude server"), card
             )
         }
 
