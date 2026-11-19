@@ -56,5 +56,23 @@
     "page.galery.pictures.taken": "Image Taken: ",
     "page.galery.pictures.made": "Image data Made: ",
     "page.galery.pictures.updated": "Image data updated: ",
-    "page.galery.pictures.tag.old_server": "Old server"
+    "page.galery.pictures.tag.old_server": "Old server",
+
+    "chatbot.top.gender.male.current": "Current Gender: Male",
+    "chatbot.top.gender.female.current": "Current Gender: Female",
+    "chatbot.top.title": ": The AI Assistant",
+    "chatbot.top.close": "Close Assistant",
+    "chatbot.top.open": "Talk to Our ai Assistant",
+    "chatbot.top.clear": "Clear Chat",
+    "chatbot.top.clear.confirm": "Are you sure you want to start an new chat",
+    "chatbot.window.chat.send": "Send message to: ",
+    "chatbot.window.chat.input.placeholder": "Type here to chat with: ",
+    "chatbot.chat.intro.male": "Hello I'm Steven your A.I Assistent. How may I assist you today.",
+    "chatbot.chat.intro.female": "Hello I'm Alexandria your A.I Assistent. How may I assist you today.",
+    "chatbot.chat.idk": "I don't know.",
+    "chatbot.chat.hoi": "hoi",
+    "chatbot.chat.hai": "hai",
+    "chatbot.chat.hi": "hi",
+    "chatbot.chat.hello": "hello",
+    "chatbot.chat.typing": " is thinking..."
 }

@@ -29,6 +29,9 @@
     --state-green: #0d3800;
     --state-red: #700000;
 
+    --color-male: #ff00dd;
+    --color-female: #700000;
+
     --header-height: 60px;
 
     --font: mayan, Arial, Helvetica, sans-serif;
@@ -78,6 +81,9 @@
 
     --state-green: #00ff9d;
     --state-red: #c40000;
+
+    --color-male: #ff00dd;
+    --color-female: #700000;
 }
 
 :root[data-font="mayan"] {
@@ -794,4 +800,34 @@ header nav ul li a:hover::after {
         #fff 33.33% 66.66%,
         #21468b 66.66% 100%
     );
+}
+
+/* chatbot */
+
+.chat-bot-chat-wrapper {
+    display: none;
+    flex-direction: column;
+}
+
+.chat-bot-topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chat-bot-chat-bubble {
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-bot-chat-window {
+    position: relative;
+    padding: 1lvh;
+    padding-bottom: 20px;
+}
+
+.chat-bot-chat-typing {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
 }
