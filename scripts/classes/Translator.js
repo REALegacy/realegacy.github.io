@@ -1,15 +1,32 @@
+const supportedLanguages = {
+    en: "en_us",
+    nl: "nl_nl"
+};
 
 export default class Translator {
     constructor({basePath = "/data/lang", language = "en_us", production = false,cache = true,cacheDuration = 24 * 60 * 60 * 1000} = {}) {
         this.basePath = basePath.replace(/\/$/, "");
-        this.language = language;
-        this.production = production;
+        this.language = window.localStorage.getItem("REALegacy/lang") || language || _getSysLang();
+        this.production = production ?? _isProduction();
 
         this.cacheEnabled = production || cache;
 
         this.cacheDuration = production ? 24 * 60 * 60 * 1000 : cacheDuration;
 
         this.translations = {};
+    }
+
+    _getSysLang() {
+        const lang = navigator.language.toLowerCase().split("-")[0];
+
+        return supportedLanguages[lang] ?? "en_us";
+    }
+
+    _isProduction() {
+        const localSimulateProduction = false;
+        const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+
+        return !isLocal || localSimulateProduction;
     }
     
 

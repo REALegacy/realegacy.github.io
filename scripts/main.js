@@ -7,29 +7,10 @@ import { helper } from "./classes/Helper.js";
 import { GaleryCard } from "./components/GaleryCard.js";
 import { popupHandler } from "./classes/PopupHandler.js";
 import Translator from "./classes/Translator.js";
-
-const supportedLanguages = {
-    en: "en_us",
-    nl: "nl_nl"
-};
-
-function getSysLang() {
-    const lang = navigator.language.toLowerCase().split("-")[0];
-
-    return supportedLanguages[lang] ?? "en_us";
-}
-
-function isProduction() {
-    const localSimulateProduction = false;
-    const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
-
-    return !isLocal || localSimulateProduction;
-}
+import { chatBot } from "./classes/ChatBot.js";
 
 const translator = new Translator({
     basePath: "data/lang",
-    language: window.localStorage.getItem("REALegacy/lang") || getSysLang(),
-    production: isProduction()
 })
 
 async function loadTranslations() {
@@ -48,7 +29,27 @@ async function loadTranslations() {
     })
 }
 
+function setFFlags() {
+    const fflags = [
+        {
+            name: "chatBotEnabled",
+            value: false
+        }
+    ]
 
+    for (let i = 0; i < fflags.length; i++) {
+        const fflagData = fflags[i];
+        const val = window.localStorage.getItem("REALegacy/fflags/" + fflagData.name);
+
+        if (val === null || val === undefined) {
+            window.localStorage.setItem("REALegacy/fflags/" + fflagData.name, fflagData.value)
+        }
+    }
+}
+
+function getFFlagBool(fflag) {
+    return window.localStorage.getItem("REALegacy/fflags/" + fflag) === "true";
+}
 
 function changeFont(value){
     document.documentElement.setAttribute("data-font", value);
@@ -103,7 +104,7 @@ function updateModPackStatus(isCompitable) {
     const statusLabel = document.getElementById("modpack-status");
 
     statusLabel.textContent = isCompitable ? translator.translate("page.home.modpack_status.up_to_date", "Laatste versie") : translator.translate("page.home.modpack_status.needs_update", "Update beschikbaar");
-    statusLabel.style.color = isCompitable ? 'var(--state-green)' : 'var(state-red)';
+    statusLabel.style.color = isCompitable ? 'var(--state-green)' : 'var(--state-red)';
 }
 
 function showModPackStatus() {
@@ -250,6 +251,7 @@ backPopupButtons.forEach((elemnt) => {
 
 // functions
 
+setFFlags()
 changeFont(window.localStorage.getItem("REALegacy/font") || "mayan")
 changeTheme(window.localStorage.getItem("REALegacy/theme") || "auto");
 updateTitle();
@@ -257,3 +259,9 @@ showModPackStatus();
 showVersion();
 showRandomImage();
 loadTranslations();
+
+async function yielded() {
+    await chatBot.initialize(getFFlagBool("chatBotEnabled"));
+}
+
+yielded()
