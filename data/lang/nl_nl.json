@@ -56,5 +56,23 @@
     "page.galery.pictures.taken": "afbeelding genomen: ",
     "page.galery.pictures.made": "afbeelding data aangemaakt: ",
     "page.galery.pictures.updated": "afbeelding data updated: ",
-    "page.galery.pictures.tag.old_server": "Oude server"
+    "page.galery.pictures.tag.old_server": "Oude server",
+
+    "chatbot.top.gender.male.current": "Current Gender: Man",
+    "chatbot.top.gender.female.current": "Current Gender: Vrouw",
+    "chatbot.top.title": ": de AI Assistent",
+    "chatbot.top.close": "Sluit Assistent",
+    "chatbot.top.open": "praat met onze ai Assistent",
+    "chatbot.top.clear": "Verwijder Chat",
+    "chatbot.top.clear.confirm": "Weet jezeker dat je en nieuwe chat wilt starten",
+    "chatbot.window.chat.send": "Verzend bericht naar: ",
+    "chatbot.window.chat.input.placeholder": "Type hier om te praaten met: ",
+    "chatbot.chat.intro.male": "Hallo ik ben Steven jouw A.I Assistent. Hoe kan ik je helpen vandaag.",
+    "chatbot.chat.intro.female": "Hallo ik ben Alexandria jouw A.I Assistent. Hoe kan ik je helpen vandaag.",
+    "chatbot.chat.idk": "Weet ik niet.",
+    "chatbot.chat.hoi": "hoi",
+    "chatbot.chat.hai": "hai",
+    "chatbot.chat.hi": "hi",
+    "chatbot.chat.hello": "hello",
+    "chatbot.chat.typing": " is aan het denken..."
 }
