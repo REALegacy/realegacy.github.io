@@ -1,28 +1,8 @@
 import { builder } from "../classes/Builder.js";
 import Translator from "../classes/Translator.js";
 
-const supportedLanguages = {
-    en: "en_us",
-    nl: "nl_nl"
-};
-
-function getSysLang() {
-    const lang = navigator.language.toLowerCase().split("-")[0];
-
-    return supportedLanguages[lang] ?? "en_us";
-}
-
-function isProduction() {
-    const localSimulateProduction = false;
-    const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
-
-    return !isLocal || localSimulateProduction;
-}
-
 const translator = new Translator({
     basePath: "data/lang",
-    language: window.localStorage.getItem("REALegacy/lang") || getSysLang(),
-    production: isProduction()
 })
 
 translator.load();
