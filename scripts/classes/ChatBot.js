@@ -10,6 +10,9 @@ class ChatBot {
     lang = localStorage.getItem("REALegacy/lang") || "en_us";
     gender = localStorage.getItem("REALegacy/chat-bot/gender") || "male";
 
+    canSendMsg = false;
+    haveStartMsg = false;
+
     msgCashe = [];
 
     prompts = {
@@ -46,6 +49,10 @@ class ChatBot {
         open.addEventListener("click", (event) => {
             open.style.display = "none";
             chat.style.display = "flex";
+            if (!this.haveStartMsg) {
+                this.playSound("intro");
+                this.haveStartMsg = true;
+            }
         })
 
         close.addEventListener("click", (event) => {
@@ -81,16 +88,20 @@ class ChatBot {
         chatInput.placeholder = translator.translate("chatbot.window.chat.input.placeholder", "Type here...") + this._getNameByGender();
 
         sendChat.addEventListener("click", (event) => {
-            this.sendChat(chatInput.value);
-            chatInput.value = "";
+            if (this.canSendMsg) {
+                this.sendChat(chatInput.value);
+                chatInput.value = "";
+            }
         })
 
         chatInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                event.preventDefault();
+            if (this.canSendMsg) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
 
-                this.sendChat(chatInput.value);
-                chatInput.value = "";
+                    this.sendChat(chatInput.value);
+                    chatInput.value = "";
+                }
             }
         });
 
@@ -100,6 +111,7 @@ class ChatBot {
 
         clear.addEventListener("click", (event) => {
             this._clearChat();
+            this.playSound("intro");
         })
     }
 
@@ -135,7 +147,6 @@ class ChatBot {
         }
 
         this.sendWelcome();
-        
     }
 
     sendWelcome() {
@@ -147,13 +158,32 @@ class ChatBot {
 
         const msg = translator.translate("chatbot.chat.intro." + this.gender, "Hallo Human"); 
         
-        const msgBot = newMsgBot.build(document.getElementById("chat-bot-chat-window"), true, "chat-bot-chat-pfp-bot", formattedBotName, msg);
+        const msgBot = newMsgBot.build(document.getElementById("chat-bot-chat-window"), true, "chat-bot-chat-pfp-bot-" + this.gender, formattedBotName, msg);
 
         this.msgCashe.push(msgBot);
+
+        this.canSendMsg = true;
+    }
+
+    playSound(key = "idk") {
+        const lang = window.localStorage.getItem("REALegacy/lang").split("_")[0];
+
+        const gender = this._getNameByGender()
+
+        const sound = `${key}-${gender}-ai-${lang}.m4a`
+
+        const newSound = new Audio("./assets/media/sounds/chat-bot/" + sound);
+
+        if (newSound) {
+            newSound.play();
+        } else {
+            console.warn("Sound not found: " + sound);
+        }
     }
 
     async sendChat(chatMsg) {
         console.log(chatMsg);
+
 
         //
 
@@ -211,10 +241,12 @@ class ChatBot {
         const typingIndicator = document.getElementById("chat-bot-typing")
 
         typingIndicator.textContent = formattedBotName + translator.translate("chatbot.chat.typing", " Is aan het denken.")
+        this.canSendMsg = false;
 
         await new Promise(resolve => setTimeout(resolve, helper.random(1000, 10000)));
 
         typingIndicator.textContent = "";
+        this.canSendMsg = true;
 
         // play sound
 
@@ -222,9 +254,11 @@ class ChatBot {
         const newMsgBot = new ChatBotChatBubble()
 
         
-        const msgBot = newMsgBot.build(document.getElementById("chat-bot-chat-window"), true, "chat-bot-chat-pfp-bot", formattedBotName, aiResponse);
+        const msgBot = newMsgBot.build(document.getElementById("chat-bot-chat-window"), true, "chat-bot-chat-pfp-bot-" + this.gender, formattedBotName, aiResponse);
 
         this.msgCashe.push(msgBot);
+
+        this.playSound(responseKey);
     }
 }
 

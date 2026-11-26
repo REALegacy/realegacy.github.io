@@ -16,6 +16,7 @@ export class ChatBotChatBubble {
         const parentClass = left ? "chat-bot-chat-bubble-left" : "chat-bot-chat-bubble-right"
 
         this.element.classList.add(parentClass);
+        this.element.classList.add("chat-bot-chat-bubble-general")
 
         const pfp = builder.addElement("div", "",
             [
@@ -25,7 +26,8 @@ export class ChatBotChatBubble {
 
         const pfpBg = builder.addElement("div", "", 
             [
-                left ? botPfpClass : "chat-bot-chat-pfp-human"
+                left ? botPfpClass : "chat-bot-chat-pfp-human",
+                "chat-bot-chat-pfp-general"
             ], [], "", pfp
         )
 
@@ -50,7 +52,8 @@ export class ChatBotChatBubble {
 
         builder.addElement("span", "",
             [
-                "chat-bot-chat-bubble-name"
+                "chat-bot-chat-bubble-name",
+                left ? "chat-bot-chat-bubble-name-left" : "chat-bot-chat-bubble-name-right"
             ], [], left ? botName : "you", bubble
         )
 
