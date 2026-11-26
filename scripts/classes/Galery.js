@@ -36,8 +36,6 @@ class Galery {
                     newImageCard.element.addEventListener("click", () => {
                         const elmnt = newImageCard.element.querySelector(".galery-grid-card");
 
-                        console.log(elmnt);
-
                         const data = {
                             title: elmnt.getAttribute("data-title"),
                             id: Number(elmnt.getAttribute("data-id")),
@@ -53,8 +51,6 @@ class Galery {
                                 userId: Number(elmnt.getAttribute("data-user-id"))
                             }
                         }
-
-                        console.log(data);
 
                         window.sessionStorage.setItem("REALegacy/lastViewingImage", JSON.stringify(data));
 
