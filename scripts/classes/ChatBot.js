@@ -28,10 +28,10 @@ class ChatBot {
     async initialize(isEnabled) {
         const open = document.getElementById("chat-bot-open");
 
-        if (!isEnabled) {
-            open.style.display = "none";
-            return;
-        }
+        // if (!isEnabled) {
+        //     open.style.display = "none";
+        //     return;
+        // }
 
         await translator.load();
         this.sendWelcome();
@@ -182,20 +182,12 @@ class ChatBot {
     }
 
     async sendChat(chatMsg) {
-        console.log(chatMsg);
-
-
-        //
 
         const newMsg = new ChatBotChatBubble()
 
         const msg = newMsg.build(document.getElementById("chat-bot-chat-window"), false, "", "", chatMsg);
 
         this.msgCashe.push(msg);
-
-        //
-
-        // check what the message is and format an response and get teh correct sound
 
         const pattern = new RegExp("(hi|hoi|hai|yo|hello|hallo|whats up)", "i");
         
@@ -248,9 +240,6 @@ class ChatBot {
         typingIndicator.textContent = "";
         this.canSendMsg = true;
 
-        // play sound
-
-        //
         const newMsgBot = new ChatBotChatBubble()
 
         

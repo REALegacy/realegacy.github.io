@@ -211,8 +211,6 @@ function showRandomImage(){
     const randomNum = helper.random(0, data.galery.images.length - 1);
     const imageData = data.galery.images[randomNum]
 
-    // console.log(randomNum, imageData);
-
     if (randomCard) {
         randomCard.destroy();
     }
@@ -251,7 +249,7 @@ backPopupButtons.forEach((elemnt) => {
 
 // functions
 
-setFFlags()
+// setFFlags()
 changeFont(window.localStorage.getItem("REALegacy/font") || "mayan")
 changeTheme(window.localStorage.getItem("REALegacy/theme") || "auto");
 updateTitle();
