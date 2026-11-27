@@ -48,3 +48,9 @@
 .galery-card-bottom-top {
     flex-direction: column;
 }
+
+.chat-bot-chat-wrapper {
+    width: 100%;
+    /* height: 500px; */
+    right: 0px;
+}

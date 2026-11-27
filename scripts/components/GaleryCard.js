@@ -7,6 +7,7 @@ const translator = new Translator({
 
 translator.load();
 
+
 export class GaleryCard {
     element;
 

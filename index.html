@@ -243,22 +243,23 @@
         <div id="chat-bot-chat" class="chat-bot-chat-wrapper">
             <div class="chat-bot-topbar">
                 <div class="chat-bot-topbar-left">
-                    <button class="chat-bot-gender-switch" data-chat-bot-gender="male"><i class="bx bx-male"></i></button>
-                    <button class="chat-bot-gender-switch" data-chat-bot-gender="female"><i class="bx bx-female"></i></button>
-                    <button id="chat-bot-clear"><i class="bx bx-trash"></i></button>
+                    <button class="cta-button chat-bot-gender-switch" data-chat-bot-gender="male"><i class="bx bx-male"></i></button>
+                    <button class="cta-button chat-bot-gender-switch" data-chat-bot-gender="female"><i class="bx bx-female"></i></button>
+                    <button id="chat-bot-clear" class="cta-button cta-danger"><i class="bx bx-trash"></i></button>
                     <span id="chat-bot-name"></span>
                 </div>
-                <button id="chat-bot-close"><i class="bx bx-x"></i></button>
+                <button id="chat-bot-close" class="cta-button cta-danger"><i class="bx bx-x"></i></button>
             </div>
             <div class="chat-bot-chat-window-wrapper">
                 <div id="chat-bot-chat-window">
+                    
+                </div>
+                <div class="chat-bot-chat-window-input">
                     <div class="chat-bot-chat-typing">
                         <span id="chat-bot-typing"></span>
                     </div>
-                </div>
-                <div class="chat-bot-chat-window-input">
                     <input type="text" name="chat-bot-input" id="chat-bot-input">
-                    <button id="chat-bot-send-chat"><i class="bx bx-paper-plane"></i></button>
+                    <button id="chat-bot-send-chat" class="cta-button"><i class="bx bx-paper-plane"></i></button>
                 </div>
             </div>
         </div>
